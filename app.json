@@ -12,7 +12,11 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.example.rn-google-maps-challenge",
+      "config": {
+        "googleMapsApiKey": "AIzaSyA96RQ01W9OmsK8znkOQUe3KfBTPs_jhlw"
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -22,6 +26,14 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
+        }
+      ]
+    ]
   }
 }

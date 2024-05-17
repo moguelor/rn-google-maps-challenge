@@ -11,4 +11,8 @@ enum AnimationDuration {
   slow = 300,
 }
 
-export { Place, AnimationDuration };
+enum ApiKeys {
+  googleMaps = "AIzaSyCOSoK5YzHP4xDwO6TbMuk8FfK4sVojh3Q",
+}
+
+export { Place, AnimationDuration, ApiKeys };

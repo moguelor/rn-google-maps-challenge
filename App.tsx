@@ -1,16 +1,16 @@
 import React from "react";
-import Providers from "./src/shared/providers/providers";
-import MapScreen from "./src/map-screen";
 import Geocoder from "react-native-geocoding";
-import { ApiKeys } from "./src/shared/types";
+import { ApiKeys } from "./_src/shared/types";
+import MapSearch from "./src/views/map-search";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 Geocoder.init(ApiKeys.googleMaps);
 
 const App = () => {
   return (
-    <Providers>
-      <MapScreen />
-    </Providers>
+    <SafeAreaProvider>
+      <MapSearch />
+    </SafeAreaProvider>
   );
 };
 

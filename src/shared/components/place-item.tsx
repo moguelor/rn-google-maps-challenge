@@ -1,28 +1,30 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { Place } from "../types";
+import { GooglePlaceItem, MarkerItem } from "../types";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Geocoder from "react-native-geocoding";
 import { useContext } from "react";
-import { StateContext } from "../providers/state";
 
-interface PlaceItemProps extends Place {}
-
-const PlaceItem = ({ address }: PlaceItemProps) => {
-  const state = useContext(StateContext);
+const PlaceItem = ({
+  description,
+  onPressItem,
+}: GooglePlaceItem & { onPressItem: (customMarker: MarkerItem) => void }) => {
   return (
     <TouchableOpacity
       style={styles.itemContainer}
       onPress={() => {
-        Geocoder.from(address).then((response) => {
-          console.log(response.results[0].geometry.location);
-          state.setCurrentLocation({
-            location: {
-              placeId: "new",
-              lat: response.results[0].geometry.location.lat,
-              lng: response.results[0].geometry.location.lng,
-            },
+        Geocoder.from(description).then((response) => {
+          onPressItem({
+            latitude: response.results[0].geometry.location.lat,
+            longitude: response.results[0].geometry.location.lng,
           });
-          state.mapRef.current?.fitToSuppliedMarkers(["new"]);
+          // state.setCurrentLocation({
+          //   location: {
+          //     placeId: "new",
+          //     lat: response.results[0].geometry.location.lat,
+          //     lng: response.results[0].geometry.location.lng,
+          //   },
+          // });
+          // state.mapRef.current?.fitToSuppliedMarkers(["new"]);
 
           // When the item is selected.
           //TODO: Put the description of that item in the search text.
@@ -38,7 +40,7 @@ const PlaceItem = ({ address }: PlaceItemProps) => {
       <View style={styles.contentContainer}>
         <View style={styles.content}>
           <Text numberOfLines={1} style={styles.subTitle}>
-            {address}
+            {description}
           </Text>
         </View>
       </View>
@@ -68,7 +70,7 @@ const styles = StyleSheet.create({
   content: {
     borderBottomColor: "#ebebeb",
     borderBottomWidth: 1,
-    paddingVertical: 5,
+    paddingVertical: 10,
   },
   title: { flex: 1, fontSize: 16, lineHeight: 24 },
   subTitle: { flex: 1, fontSize: 14, color: "gray", lineHeight: 20 },

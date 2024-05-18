@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { LayoutChangeEvent, StyleSheet, TextInput, View } from "react-native";
 import Animated, {
   interpolateColor,
   useAnimatedStyle,
@@ -6,17 +6,35 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import SearchInput from "./search-input";
-import { LayoutChangeEvent, StyleSheet } from "react-native";
-import { StateContext } from "../providers/state";
+import ButtonIcon from "./button-icon";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { useRef, useState } from "react";
 import { AnimationDuration } from "../types";
 
-const Header = () => {
+interface HeaderProps {
+  onInputFocus: () => void;
+  onPressBack: () => void;
+  onPressClear: () => void;
+  setHeaderHeight: (value: number) => void;
+  onInputChange: (value: string) => void;
+  query: string;
+  isOpenOverlay: boolean;
+}
+
+const Header = ({
+  onInputFocus,
+  onPressBack,
+  onPressClear,
+  onInputChange,
+  setHeaderHeight,
+  isOpenOverlay,
+  query,
+}: HeaderProps) => {
   const { top } = useSafeAreaInsets();
-  const state = useContext(StateContext);
+  const inputRef = useRef<TextInput>(null);
 
   const animationProgress = useDerivedValue(() =>
-    withTiming(state.isFocusedSearchInput ? 1 : 0, {
+    withTiming(isOpenOverlay ? 1 : 0, {
       duration: AnimationDuration.normal,
     })
   );
@@ -29,10 +47,19 @@ const Header = () => {
     ),
   }));
 
+  const handleBackButton = () => {
+    onPressBack();
+    inputRef.current?.blur();
+  };
+
+  const handleClearButton = () => {
+    onPressClear();
+  };
+
   return (
     <Animated.View
       onLayout={(e: LayoutChangeEvent) => {
-        state.setHeaderHeight(e.nativeEvent.layout.height);
+        setHeaderHeight(e.nativeEvent.layout.height);
       }}
       style={[
         styles.header,
@@ -42,7 +69,30 @@ const Header = () => {
         },
       ]}
     >
-      <SearchInput />
+      <View style={styles.inputWrapper}>
+        {isOpenOverlay && (
+          <ButtonIcon onPress={handleBackButton}>
+            <Ionicons name="chevron-back" size={30} color="#000" />
+          </ButtonIcon>
+        )}
+
+        <TextInput
+          ref={inputRef}
+          value={query}
+          onChangeText={onInputChange}
+          onFocus={() => {
+            onInputFocus();
+          }}
+          style={styles.input}
+          placeholder={"Type to search a place..."}
+        />
+
+        {query && (
+          <ButtonIcon onPress={handleClearButton}>
+            <Ionicons name="close-sharp" size={30} color="#000" />
+          </ButtonIcon>
+        )}
+      </View>
     </Animated.View>
   );
 };
@@ -57,6 +107,24 @@ const styles = StyleSheet.create({
     right: 0,
     paddingHorizontal: 16,
     paddingBottom: 10,
+  },
+  inputWrapper: {
+    borderRadius: 100,
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#FFF",
+    borderColor: "lightgray",
+    borderWidth: 1,
+    overflow: "hidden",
+    paddingHorizontal: 10,
+  },
+  input: {
+    paddingVertical: 10,
+    fontSize: 18,
+    marginLeft: 10,
+    flex: 1,
+    fontWeight: "300",
+    width: "100%",
   },
 });
 

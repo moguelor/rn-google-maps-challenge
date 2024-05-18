@@ -12,11 +12,7 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.example.rn-google-maps-challenge",
-      "config": {
-        "googleMapsApiKey": "AIzaSyA96RQ01W9OmsK8znkOQUe3KfBTPs_jhlw"
-      }
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {

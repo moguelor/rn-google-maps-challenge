@@ -1,9 +1,6 @@
-type Place = {
-  address: string;
-  shortAddress: string;
-  placeId: string;
-  location: { lat: number; lng: number };
-};
+enum ApiKeys {
+  googleMaps = "AIzaSyCOSoK5YzHP4xDwO6TbMuk8FfK4sVojh3Q",
+}
 
 enum AnimationDuration {
   fast = 100,
@@ -11,8 +8,14 @@ enum AnimationDuration {
   slow = 300,
 }
 
-enum ApiKeys {
-  googleMaps = "AIzaSyCOSoK5YzHP4xDwO6TbMuk8FfK4sVojh3Q",
-}
+type MarkerItem = {
+  latitude: number;
+  longitude: number;
+};
 
-export { Place, AnimationDuration, ApiKeys };
+type GooglePlaceItem = {
+  place_id: string;
+  description: string;
+};
+
+export { ApiKeys, MarkerItem, AnimationDuration, GooglePlaceItem };

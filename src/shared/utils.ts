@@ -1,5 +1,11 @@
-import { Place } from "./types";
+import { GooglePlaceItem, MarkerItem } from "./types";
 
-const getKeyExtractor = (item: Place) => item.placeId;
+// Default marker location (Merida)
+const DEFAULT_LOCATION: MarkerItem = {
+  latitude: 20.97537,
+  longitude: -89.61696,
+};
 
-export { getKeyExtractor };
+const getKeyExtractor = (item: GooglePlaceItem) => item.place_id;
+
+export { DEFAULT_LOCATION, getKeyExtractor };

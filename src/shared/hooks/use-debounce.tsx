@@ -6,6 +6,9 @@ interface DebounceProps {
   delay?: number;
 }
 
+/**
+ * Hook to activate a debounce function.
+ */
 const useDebounce = ({
   effect,
   dependencies = [],

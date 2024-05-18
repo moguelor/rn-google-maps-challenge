@@ -117,4 +117,8 @@ Here are the main libraries used in the project.
 
 ### IMAGES
 
-![Alt text](https://drive.google.com/uc?id=1Lt7IfkO1yUOePLC1GKRvn0q5At1SQlea)
+![Screen Splash](https://drive.google.com/uc?id=1Lt7IfkO1yUOePLC1GKRvn0q5At1SQlea)
+![](https://drive.google.com/uc?id=1FI0ZTcznn4SJilUvH9oqorWyIp_N3kxH)
+![](https://drive.google.com/uc?id=1mBZhBxvcfaZt0nN-7f6QrdD5XX6CgGx9)
+![](https://drive.google.com/uc?id=1-QaNHRm5ee4Oh1Co1rvYUh1Q_Kv2CiDi)
+![](https://drive.google.com/uc?id=1MQO63x_ZOzxyS2r_lTQs13j2hJspmy81)

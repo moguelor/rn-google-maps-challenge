@@ -6,16 +6,22 @@ import { GooglePlaceItem, MarkerItem } from '../types';
 const PlaceItem = ({
     description,
     onPressItem,
-}: GooglePlaceItem & { onPressItem: (customMarker: MarkerItem) => void }) => {
+}: GooglePlaceItem & {
+    onPressItem: (customMarker: MarkerItem, description: string) => void;
+}) => {
     return (
         <TouchableOpacity
             style={styles.itemContainer}
             onPress={() => {
                 Geocoder.from(description).then((response) => {
-                    onPressItem({
-                        latitude: response.results[0].geometry.location.lat,
-                        longitude: response.results[0].geometry.location.lng,
-                    });
+                    onPressItem(
+                        {
+                            latitude: response.results[0].geometry.location.lat,
+                            longitude:
+                                response.results[0].geometry.location.lng,
+                        },
+                        description,
+                    );
                 });
             }}>
             <View style={styles.icon}>

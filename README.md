@@ -75,7 +75,7 @@ Here are the main libraries used in the project.
 
 -   [jest](https://jestjs.io/)
 
-#### Deploy - Development
+### Deploy - Development
 
 -   [Expo Go](https://expo.dev/go)
 
@@ -98,7 +98,7 @@ Here are the main libraries used in the project.
 
 ## BONUS
 
--   [x] Added a smooth look an feel with animations.
+-   [x] Added a smooth look and feel with animations.
 -   [x] Added extra validations when the user is calling the api.
 -   [x] Customized the application with the splash and icons.
 -   [x] Added unit testing for some util functions.

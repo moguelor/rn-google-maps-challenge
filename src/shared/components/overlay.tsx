@@ -7,7 +7,7 @@ import PlaceItem from './place-item';
 interface OverlayProps {
     isOpen: boolean;
     places: GooglePlaceItem[];
-    onPressItem: (customMarker: MarkerItem) => void;
+    onPressItem: (customMarker: MarkerItem, description: string) => void;
     headerHeight: number;
     error: unknown;
     isFetching: boolean;

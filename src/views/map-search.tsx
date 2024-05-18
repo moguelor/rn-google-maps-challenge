@@ -55,9 +55,13 @@ const MapSearch = () => {
                 places={places}
                 isFetching={isFetching}
                 error={error}
-                onPressItem={(customMarker: MarkerItem) => {
+                onPressItem={(
+                    customMarker: MarkerItem,
+                    description: string,
+                ) => {
                     setCustomMarker(customMarker);
                     setIsOpenOverlay(false);
+                    setQuery(description);
                 }}
                 headerHeight={headerHeight}
             />

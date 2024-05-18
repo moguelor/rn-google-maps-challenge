@@ -6,6 +6,7 @@ const DEFAULT_LOCATION: MarkerItem = {
   longitude: -89.61696,
 };
 
+// Used to get the key for the flat list.
 const getKeyExtractor = (item: GooglePlaceItem) => item.place_id;
 
 export { DEFAULT_LOCATION, getKeyExtractor };

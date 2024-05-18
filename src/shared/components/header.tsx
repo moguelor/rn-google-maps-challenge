@@ -33,6 +33,15 @@ const Header = ({
   const { top } = useSafeAreaInsets();
   const inputRef = useRef<TextInput>(null);
 
+  const handleBackButton = () => {
+    onPressBack();
+    inputRef.current?.blur();
+  };
+
+  const handleClearButton = () => {
+    onPressClear();
+  };
+
   const animationProgress = useDerivedValue(() =>
     withTiming(isOpenOverlay ? 1 : 0, {
       duration: AnimationDuration.normal,
@@ -46,15 +55,6 @@ const Header = ({
       ["rgba(255,255,255,0)", "rgba(255,255,255,1)"]
     ),
   }));
-
-  const handleBackButton = () => {
-    onPressBack();
-    inputRef.current?.blur();
-  };
-
-  const handleClearButton = () => {
-    onPressClear();
-  };
 
   return (
     <Animated.View

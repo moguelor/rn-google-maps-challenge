@@ -7,7 +7,7 @@ interface DebounceProps {
 }
 
 /**
- * Hook to activate a debounce function.
+ * Hook to activate a debounce function in a determined time.
  */
 const useDebounce = ({
   effect,

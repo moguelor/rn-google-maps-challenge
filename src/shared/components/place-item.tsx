@@ -17,20 +17,6 @@ const PlaceItem = ({
             latitude: response.results[0].geometry.location.lat,
             longitude: response.results[0].geometry.location.lng,
           });
-          // state.setCurrentLocation({
-          //   location: {
-          //     placeId: "new",
-          //     lat: response.results[0].geometry.location.lat,
-          //     lng: response.results[0].geometry.location.lng,
-          //   },
-          // });
-          // state.mapRef.current?.fitToSuppliedMarkers(["new"]);
-
-          // When the item is selected.
-          //TODO: Put the description of that item in the search text.
-          //TODO: Close the overlay
-          //TODO: Print the marker.
-          //TODO: Update zoom of the map to that market.
         });
       }}
     >

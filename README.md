@@ -7,7 +7,8 @@ with technologies to create universal native apps (ios and android) with
 ### Demo Videos
 
 [IOS APP](https://drive.google.com/file/d/1pwfNIvayQfpcrYo4WB6PdB3OX6hctLqg/view?usp=sharing)
-[ANDROID APP](https://drive.google.com/file/d/1pwfNIvayQfpcrYo4WB6PdB3OX6hctLqg/view?usp=drive_link)
+
+[ANDROID APP](https://drive.google.com/file/d/1JEuxO6dbeywDl45y51BIB7zjmrecw6U_/view?usp=sharing)
 
 ### Started Kit
 
@@ -113,3 +114,7 @@ Here are the main libraries used in the project.
 
 -   Deploy the apps directly with
     [EAS BUILD](https://docs.expo.dev/build/introduction/)
+
+### IMAGES
+
+![Alt text](https://drive.google.com/uc?id=1Lt7IfkO1yUOePLC1GKRvn0q5At1SQlea)

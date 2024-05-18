@@ -12,6 +12,11 @@ const useDebounce = ({
     dependencies = [],
     delay = 500,
 }: DebounceProps) => {
+    /**
+     * Is not necessary to add the dependency "effect", because is causing a
+     * infinite loop
+     */
+    // eslint-disable-next-line
     const callback = useCallback(effect, dependencies);
 
     useEffect(() => {

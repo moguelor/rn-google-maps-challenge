@@ -15,7 +15,7 @@ const useUpdateMarkerOnScreen = ({ marker, identifier }: Options) => {
         if (mapRef.current) {
             mapRef.current.fitToSuppliedMarkers([identifier]);
         }
-    }, [marker.latitude, marker.longitude]);
+    }, [identifier, marker.latitude, marker.longitude]);
 
     return mapRef;
 };

@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
     },
     noRows: {
         textAlign: 'center',
+        fontSize: 18,
     },
     error: {
         color: 'red',

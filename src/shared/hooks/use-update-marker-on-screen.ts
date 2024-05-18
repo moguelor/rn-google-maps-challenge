@@ -12,9 +12,17 @@ const useUpdateMarkerOnScreen = ({ marker, identifier }: Options) => {
     const mapRef = useRef<MapView>(null);
 
     useEffect(() => {
-        if (mapRef.current) {
-            mapRef.current.fitToSuppliedMarkers([identifier]);
-        }
+        /**
+         * Adding a time out to avoid the performance problem, more info on
+         * docs.
+         *
+         * @info https://github.com/react-native-maps/react-native-maps/blob/master/docs/mapview.md#methods
+         */
+        setTimeout(() => {
+            if (mapRef.current) {
+                mapRef.current.fitToSuppliedMarkers([identifier]);
+            }
+        }, 300);
     }, [identifier, marker.latitude, marker.longitude]);
 
     return mapRef;

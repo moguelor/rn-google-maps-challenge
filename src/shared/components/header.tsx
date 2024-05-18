@@ -70,9 +70,15 @@ const Header = ({
             ]}>
             <View style={styles.inputWrapper}>
                 {isOpenOverlay && (
-                    <ButtonIcon onPress={handleBackButton}>
-                        <Ionicons name="chevron-back" size={30} color="#000" />
-                    </ButtonIcon>
+                    <View style={{ minWidth: 40 }}>
+                        <ButtonIcon onPress={handleBackButton}>
+                            <Ionicons
+                                name="chevron-back"
+                                size={30}
+                                color="#000"
+                            />
+                        </ButtonIcon>
+                    </View>
                 )}
 
                 <TextInput
@@ -122,7 +128,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         marginLeft: 10,
         flex: 1,
-        fontWeight: '300',
+        fontWeight: '400',
         width: '100%',
     },
 });
